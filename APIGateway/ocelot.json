@@ -1,0 +1,48 @@
+{
+  "ReRoutes": [
+    {
+      "DownstreamPathTemplate": "/api/user",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "14302"
+        }
+      ],
+      "UpstreamPathTemplate": "/user",
+      "UpstreamHttpMethod": [ "GET" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/user/userById/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "14302"
+        }
+      ],
+      "UpstreamPathTemplate": "/user/{id}",
+      "UpstreamHttpMethod": [ "GET" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/user/addTeacher",
+      "DownstreamRequestBody": {
+        "TeacherId": "teacherId",
+        "TeacherName": "teacherName"
+      },
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "14302"
+        }
+      ],
+      "UpstreamPathTemplate": "/addStudent",
+      "UpstreamRequestBody": {
+        "TeacherId": "teacherId",
+        "TeacherName": "teacherName"
+      },
+      "UpstreamHttpMethod": [ "POST" ]
+    }
+  ]
+}
